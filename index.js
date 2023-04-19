@@ -73,6 +73,7 @@ app.post('/todo/checkEdit', (req, res) => {
     console.log(DATA);
     res.status(200).json(DATA);
 });
+
 app.post('/todo/checkAll', (req, res) => {
     const aggAllCheck = (obj) => {
         obj.completed = true;
