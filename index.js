@@ -18,16 +18,13 @@ let DATA = [
     { id: "todo-2", name: "Ripeti", completed: false }
   ];
   app.get('/todos', (req, res) => {
-    console.log(res);
     res.status(200).json(DATA);
 });
 app.post('/todo/add', (req, res) => {
     let taskName = req.body.name;
-    console.log(req.body.name);
     let id_add = Math.random();
     id_add = `todo-${nanoid()}`;
     DATA.push({id: id_add, name: taskName, completed: false});
-    console.log(DATA);
     res.status(200).json(DATA);
 });
 app.post('/todo/delete', (req, res) => {
@@ -39,7 +36,6 @@ app.post('/todo/delete', (req, res) => {
             return false;
         }
     });
-    console.log(DATA);
     res.status(200).json(DATA);
 });
 app.post('/todo/edit', (req, res) => {
@@ -55,7 +51,6 @@ app.post('/todo/edit', (req, res) => {
         }
      };
     DATA = DATA.map(aggNome);
-    console.log(DATA);
     res.status(200).json(DATA);
 });
 app.post('/todo/checkEdit', (req, res) => {
@@ -70,7 +65,6 @@ app.post('/todo/checkEdit', (req, res) => {
         }
      };
     DATA = DATA.map(aggCheck);
-    console.log(DATA);
     res.status(200).json(DATA);
 });
 
@@ -80,13 +74,11 @@ app.post('/todo/checkAll', (req, res) => {
         return obj;
      };
     DATA = DATA.map(aggAllCheck);
-    console.log(DATA);
     res.status(200).json(DATA);
 });
 
 app.post('/todo', (req, res) => {
     const dati = req.body.dati;
-    console.log(dati);
     if(dati.id){
         DATA = DATA.map(elem=>{
             if(elem.id==dati.id){
@@ -96,7 +88,6 @@ app.post('/todo', (req, res) => {
             }
         })
     }
-    console.log(DATA);
     res.status(200).json(DATA);
 });
 
