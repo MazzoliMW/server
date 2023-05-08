@@ -13,12 +13,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 let DATA = [
-    { id: "todo-0", name: "Mangia", completed: true },
-    { id: "todo-1", name: "Dormi", completed: false },
-    { id: "todo-2", name: "Ripeti", completed: false }
-  ];
-  app.get('/todos', (req, res) => {
-    res.status(200).json(DATA);
+  { id: "todo-0", name: "Mangia", completed: true },
+  { id: "todo-1", name: "Dormi", completed: false },
+  { id: "todo-2", name: "Ripeti", completed: false }
+];
+app.get('/todos', (req, res) => {
+  res.status(200).json(DATA);
 });
 app.post('/todo/add', (req, res) => {
     let taskName = req.body.name;
